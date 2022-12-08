@@ -1,0 +1,23 @@
+Choosing the number of clusters by using wcss
+WCSS - Within cluster sum of squares - Distance b/w each data points with their centeroids
+Finding wcss value for different no of clusters
+idea is to find the cluster with minimum wcss value
+
+
+wcss = []
+for i in range(1,11):
+   #taking 10 clusters (n-1, 11-1 = 10)
+   kmeans = KMeans(n_clusters=i, init='k-means++',random_state=42)
+   kmeans.fit(X)
+   wcss.append(kmeans.inertia_)#gives wcss value
+   
+   
+   kmeans = KMeans(n_clusters=4,init='k-means++', random_state = 42)
+
+# return a label for each data point based on their cluster (4 cluster - so cluster 0, cluster 1... cluster 3)
+
+Y = kmeans.fit_predict(X)
+#Compute cluster centers and predict cluster index for each sample.
+
+#Convenience method; equivalent to calling fit(X) followed by
+#predict(X).
